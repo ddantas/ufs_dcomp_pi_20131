@@ -4,15 +4,15 @@ import cv2
 
 class WebCam():
     
-    """"constructor
-        recieve the camera ID, picture default size, path and filename
+    """"construtor da cl
+        recebe como parâmetros o ID da camera, o tamnho padrão das fotos, o path e o filename
 
     """
     def __init__(self, cameraId = 0, size = 500, path = "", filename = "img-%03d-%03d.jpg"):
         self.setPath(path)
         self.setFileName(filename)
         self.setCameraId(cameraId)
-        self.size = size
+        self.setDefaultSize(size)
         
 
     """set the image path"""
@@ -34,6 +34,7 @@ class WebCam():
         realease, picture = camera.read()
         realease, picture = camera.read()
         
+
         picture = self.setSize(picture)
         
         
@@ -47,7 +48,11 @@ class WebCam():
 
     """set the cam id"""
     def setCameraId(self, cameraId):
-        self.cameraId = cameraId   
+        self.cameraId = cameraId
+
+    """set the default size to the picture"""
+    def setDefaultSize(self, size):
+        self.size = size
 
     """set the picture size to the default value"""                    
     def setSize(self, picture):
@@ -74,9 +79,6 @@ class WebCam():
             pc2[i] = pc1[i][ix1:ix2]
         
 
-        return pc2    
-
+        return pc2
+        
     
-        
-        
-                
