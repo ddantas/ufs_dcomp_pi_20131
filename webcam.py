@@ -34,9 +34,6 @@ class WebCam():
         realease, picture = camera.read()
         realease, picture = camera.read()
         
-
-        cv2.imwrite("teste.jpg", picture)
-        
         picture = self.setSize(picture)
         
         
