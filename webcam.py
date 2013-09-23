@@ -5,7 +5,7 @@ import cv2
 class WebCam():
     
     """"construtor da cl
-        recebe como parâmetros o ID da camera, o tamnho padrão das fotos, o path e o filename
+        recebe como parâmetros o ID da camera, o tamanho padrão das fotos, o path e o filename
 
     """
     def __init__(self, cameraId = 0, size = 500, path = "", filename = "img-%03d-%03d.jpg"):
@@ -35,7 +35,7 @@ class WebCam():
         realease, picture = camera.read()
         
 
-        picture = self.setSize(picture)
+        ##picture = self.setSize(picture)
         
         
         if (type(i)==int) and (type(j)==int):
@@ -79,6 +79,21 @@ class WebCam():
             pc2[i] = pc1[i][ix1:ix2]
         
 
-        return pc2
+        return pc2    
+    ""
+    def show_Cam(cameraId):
+
+	capture = cv2.VideoCapture(cameraId)
+	cv2.namedWindow('cam',1)
+	
+	while True:
+	
+		ok, img = capture.read()
+		cv2.imshow('cam',img)
+		if cv2.waitKey(10) == 27:
+			break
+	cv2.destroyWindow('cam')		
+
         
-    
+        
+                
