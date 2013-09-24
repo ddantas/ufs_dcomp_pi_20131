@@ -12,19 +12,18 @@ void setup() {
 
 void loop() {
   if (Serial.available()) {
-      char c = Serial.read();
-      if (c == 'F') {
+     char c = Serial.read();
+     if (c == 'F') {
         for (int i = 0; i < 32; i++)
         {
           myStepper.step(1);
         }
-      }
-      else if (c == 'B') {
+     }
+     else if (c == 'B') {
         for (int i = 0; i < 32; i++)
         {
           myStepper.step(-1);
         }
-      }
-  } 
+     }
+   } 
 }
-
