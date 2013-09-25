@@ -18,7 +18,7 @@ class WebCam():
     def setPath(self, path):
         if not (path  == ""):
             contrabarra= "\\"
-            if not (path[len-1]== contrabarra):
+            if not (path[len(path)-1]== contrabarra):
                 path = path + contrabarra
         self.path = path
         
