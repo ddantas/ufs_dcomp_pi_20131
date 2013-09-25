@@ -8,12 +8,11 @@ class WebCam():
         recebe como parâmetros o ID da camera, o tamanho padrão das fotos, o path e o filename
 
     """
-    def __init__(self, cameraId = 0, size = 500, path = "", filename = "img-%03d-%03d.jpg"):
+    def __init__(self, cameraId = 0, path = "", filename = "img-%03d-%03d.jpg"):
         self.setPath(path)
         self.setFileName(filename)
         self.setCameraId(cameraId)
-        self.setDefaultSize(size)
-        
+            
 
     """set the image path"""
     def setPath(self, path):
@@ -34,9 +33,6 @@ class WebCam():
         realease, picture = camera.read()
         realease, picture = camera.read()
         
-
-        ##picture = self.setSize(picture)
-        
         
         if (type(i)==int) and (type(j)==int):
             caminho = self.path + (self.filename % (i,j))
@@ -50,50 +46,14 @@ class WebCam():
     def setCameraId(self, cameraId):
         self.cameraId = cameraId
 
-    """set the default size to the picture"""
-    def setDefaultSize(self, size):
-        self.size = size
+    """returns the filename"""
+    def getFileName(self):
+        return self.filename
 
-    """set the picture size to the default value"""                    
-    def setSize(self, picture):
-        size = self.size
-        shape = picture.shape
+    """"retrurn the actual path"""
+    def getPath(self):
+        return self.path
 
-        while (shape[0]< size) or (shape[1]< size):
-            size  = size - 100
-        
-        dy = shape[0] - size
-        dx = shape[1] - size
-        iy1 = dy/2
-        iy2 = shape[0] - dy/2
-
-        ix1 = dx/2
-        ix2 = shape[1] - dx/2
-           
-            
-        pc1 = picture[iy1:iy2]
-        pc2 = picture.copy()
-        pc2.resize((size,size,3), refcheck = True)
-
-        for i in range(size):
-            pc2[i] = pc1[i][ix1:ix2]
-        
-
-        return pc2    
-    ""
-    def show_Cam(cameraId):
-
-	capture = cv2.VideoCapture(cameraId)
-	cv2.namedWindow('cam',1)
-	
-	while True:
-	
-		ok, img = capture.read()
-		cv2.imshow('cam',img)
-		if cv2.waitKey(10) == 27:
-			break
-	cv2.destroyWindow('cam')		
-
-        
-        
-                
+    """give the camera ID"""
+    def getCameraId(self):
+        return self.cameraId
