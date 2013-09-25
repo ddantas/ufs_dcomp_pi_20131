@@ -1,5 +1,15 @@
 # -*- coding: cp1252 -*-
 #module to takepictures, setting their names and save a picture for its position
+#para modificar o path é preciso toma cuidado com o contraba'\'
+#em python ele é usado quando se quer por caracter especial, como "'" ou " " ", ou 
+## o proprio contrabarra. para especificar o caminho vc usa o contrabarra duas vezes:
+####para caminho relativo:
+# path = "E:\\pasta1\\pasta2" 
+##para caminho absoluto
+##path = "E:\\pasta1\\pasta2\\" 
+
+
+
 import cv2
 
 class WebCam():
@@ -15,6 +25,7 @@ class WebCam():
             
 
     """set the image path"""
+    
     def setPath(self, path):
         if not (path  == ""):
             contrabarra= "\\"
