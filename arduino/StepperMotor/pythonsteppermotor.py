@@ -52,7 +52,7 @@ dirf = 'F'
 dirb = 'B'
 arduino = OpenA(port)
 print("moving x")
-StepX(dirf, 10000, arduino)
+StepX(dirf, 10000000, arduino)
 time.sleep(5)
 print("moving y")
 StepY(dirb, 20, arduino)
