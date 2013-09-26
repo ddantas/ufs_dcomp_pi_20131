@@ -39,6 +39,11 @@ def StepXY(x, y, arduino):
         StepX('F', x, arduino)
         StepX('B', x, arduino)
         StepY('F', 1, arduino)
+
+#def Reset(px, py, arduino):
+#   if(param == 1):
+#      for i in range(1000000):
+         
         
 #it closes the connection with arduino
 def CloseA(arduino):
